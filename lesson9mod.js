@@ -1,5 +1,5 @@
-var linebreak=/[\u0f0d\u0f0e ]+/g;
-var syllable=/[\u0f0b\u0f0e]+/g;
+var linebreak=/[\u0f0d\u0f0e\u0f0f ]+/g;
+var syllable=/[\u0f0b\u0f0c]+/g;
 
 var onelinepuretext=function(content) {
 	return content.replace(/<.+?>/g,"").replace(/\r?\n/g,"");

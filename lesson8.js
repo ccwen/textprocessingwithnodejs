@@ -3,16 +3,12 @@
      清 tag 及換行
 			Tibetan Unicode
   */
-/*
-  製作 lst 
-  dir/s/b *.xml > derge_kangyur.lst
-*/
 
 var fs=require("fs");
-
+//github.com/karmapa17/derge_kangyur/
 var content=fs.readFileSync("../derge_kangyur/076/d352_001.xml","utf8");
-var linebreak=/[\u0f0d\u0f0e ]+/g;
-var syllable=/[\u0f0b\u0f0e]+/g;
+var linebreak=/[\u0f0d\u0f0e\u0f0f ]+/g;
+var syllable=/[\u0f0b\u0f0c]+/g;
 
 var onelinepuretext=function(content) {
 	return content.replace(/<.+?>/g,"").replace(/\r?\n/g,"");
@@ -42,4 +38,5 @@ console.log(sentences2.length);
 console.log(syllables.length);
 
 //practice , sort by sentence length
+
 //find unique syllable and frequency
