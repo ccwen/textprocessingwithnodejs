@@ -8,7 +8,7 @@ var lastn1=0,lastn2=0;
 for (var i=0;i<missnum.length;i++) {
 	var s=missnum[i].split(".");
 	var n1=parseInt(s[0]), n2=parseInt(s[1]);
-	if (n1-lastn1>0)	lastn2=0;
+	if (n1-lastn1>0) lastn2=n2;
 
 	if (n2-lastn2>1) {
 		//少了第二組 () 會如何？
