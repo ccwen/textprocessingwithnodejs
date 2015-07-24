@@ -33,10 +33,13 @@ var sentences1=nondestructive_split(oneline);
 var sentences2=destructive_split(oneline);
 var syllables=tosyllable(oneline);
 
-console.log(sentences1.length);
-console.log(sentences2.length);
-console.log(syllables.length);
+//console.log(sentences1.length);
+//console.log(sentences2.length);
+//console.log(syllables.length);
 
+var out=sentences1.sort(function(a,b){return a.length-b.length}).map(function(a){return [a.length,a]});
+
+console.log(out.join("\n"))
 //practice , sort by sentence length
 
 //find unique syllable and frequency
