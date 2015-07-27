@@ -1,0 +1,33 @@
+<html>
+<meta charset="utf8">
+<script src="words.js"></script>
+<input id="tofind" value="花" onKeyPress="keypress(event)"></input>
+<button onClick="search()">Search</button>
+<div id="result"></div>
+<script>
+
+var regexmatch=function(tofind) {//pure function
+	return words.filter(function(idiom){
+		return idiom.match(tofind);
+	});
+}
+var keypress=function(e) {
+	if (e.keyCode==13) search();
+}
+var search=function() {//輸出入
+	var out=regexmatch(tofind.value);
+	render(out,tofind.value);
+}
+var render=function(searchresult,tf) {
+	var google='<a target=_new href="https://www.google.com.tw/search?q=';
+	var out=searchresult.map(function(item,idx){
+		var colored=item.replace(tf,function(m){
+			return "<font color='red'>"+m+"</font>";
+		})
+		return (idx+1)+"."+google+item+'">'+
+			colored+"</a><br>";
+	})
+	result.innerHTML=out.join("");
+}
+</script>
+</html>
